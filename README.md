@@ -6,11 +6,11 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://www.python.org/)
 [![Code Style](https://img.shields.io/badge/Code%20Style-Clean%20%26%20Readable-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
-[![Dependencies](https://img.shields.io/badge/Dependencies-watchdog%206.0.0-yellow.svg)](https://pypi.org/project/watchdog/)
+[![Dependencies](https://img.shields.io/badge/Dependencies-psutil%207.1.0%20%7C%20watchdog%206.0.0-yellow.svg)](https://pypi.org/project/watchdog/)
 
 **🤖 Intelligent File Management Automation Suite**
 
-*Streamline your file organization with intelligent sorting and batch renaming capabilities*
+*Streamline your file organization with intelligent sorting, batch renaming, real-time monitoring, and system monitoring capabilities*
 
 </div>
 
@@ -24,7 +24,8 @@
 - [📁 File Organization System](#-file-organization-system)
 - [🔄 Batch Renaming Engine](#-batch-renaming-engine)
 - [⚡ Real-time File Monitoring](#-real-time-file-monitoring)
-- [💾 Data Flow & Interactions](#-data-flow--interactions)
+- [� System Monitoring](#-system-monitoring)
+- [�💾 Data Flow & Interactions](#-data-flow--interactions)
 - [🎯 Key Features](#-key-features)
 - [📊 File Categories](#-file-categories)
 - [🎮 User Interface Flow](#-user-interface-flow)
@@ -35,14 +36,15 @@
 
 ## 🌟 Overview
 
-**AutoPyHub** is a powerful Python-based file management automation suite designed to simplify and streamline file organization tasks. The project consists of three main modules that work together to provide comprehensive file management solutions:
+**AutoPyHub** is a powerful Python-based file management automation suite designed to simplify and streamline file organization tasks. The project consists of four main modules that work together to provide comprehensive file management and system monitoring solutions:
 
 - **📁 File Pilot**: Intelligent file sorting and categorization
 - **🏷️ Wander Sort**: Batch file renaming with preview capabilities  
 - **🐺 Flow Wolf**: Real-time file monitoring and automatic organization
+- **💻 Opti Monitor**: Real-time system resource monitoring
 
 ### 🎯 Mission
-Transform chaotic file directories into organized, systematically structured folders with minimal user intervention.
+Transform chaotic file directories into organized, systematically structured folders with minimal user intervention while providing comprehensive system monitoring capabilities.
 
 ---
 
@@ -52,7 +54,8 @@ Transform chaotic file directories into organized, systematically structured fol
 AutoPyHub/
 ├── 📄 00_file_pilot.py          # File sorting & categorization engine
 ├── 📄 01_wander_sort.py         # Batch renaming utility
-├── � 02_flow_wolf.py           # Real-time file monitoring
+├── 📄 02_flow_wolf.py           # Real-time file monitoring
+├── 📄 03_opti_monitor.py        # System resource monitoring
 └── 📄 requirements.txt          # Python dependencies
 ```
 
@@ -65,26 +68,33 @@ graph TD
     A[🚀 AutoPyHub Suite] --> B[📁 File Pilot]
     A --> C[🏷️ Wander Sort]
     A --> D[🐺 Flow Wolf]
+    A --> E[💻 Opti Monitor]
     
-    B --> E[Extension Detection]
-    B --> F[Category Mapping]
-    B --> G[Folder Creation]
-    B --> H[File Movement]
+    B --> F[Extension Detection]
+    B --> G[Category Mapping]
+    B --> H[Folder Creation]
+    B --> I[File Movement]
     
-    C --> I[File Discovery]
-    C --> J[Name Generation]
-    C --> K[Preview System]
-    C --> L[Batch Renaming]
+    C --> J[File Discovery]
+    C --> K[Name Generation]
+    C --> L[Preview System]
+    C --> M[Batch Renaming]
     
-    D --> M[Watchdog Observer]
-    D --> N[Event Handler]
-    D --> O[Auto-categorization]
-    D --> P[Real-time Movement]
+    D --> N[Watchdog Observer]
+    D --> O[Event Handler]
+    D --> P[Auto-categorization]
+    D --> Q[Real-time Movement]
+    
+    E --> R[CPU Monitoring]
+    E --> S[RAM Monitoring]
+    E --> T[Disk Monitoring]
+    E --> U[Real-time Display]
     
     style A fill:#f9f,stroke:#333,stroke-width:4px
     style B fill:#bbf,stroke:#333,stroke-width:2px
     style C fill:#bfb,stroke:#333,stroke-width:2px
     style D fill:#fbf,stroke:#333,stroke-width:2px
+    style E fill:#fbb,stroke:#333,stroke-width:2px
 ```
 
 </div>
@@ -143,6 +153,17 @@ EXTENSION_MAP = {
 | `FileMoverHandler` | Event handler class | Processes file creation events |
 | `on_created()` | File creation trigger | Automatically categorizes new files |
 | `Observer` | Watchdog monitor | Watches Downloads folder for changes |
+
+### 💻 Opti Monitor Module (`03_opti_monitor.py`)
+
+**Purpose**: Real-time system resource monitoring with CPU, RAM, and disk usage tracking
+
+#### 🔑 Key Functions
+
+| Function | Purpose | Input | Output |
+|----------|---------|--------|---------|
+| `clear_screen()` | Terminal screen management | None | Cleared terminal |
+| `show_stats()` | Resource monitoring display | None | CPU, RAM, disk statistics |
 
 ---
 
@@ -231,7 +252,7 @@ Result: vacation_1.jpg, vacation_2.jpg, vacation_3.jpg
 flowchart TD
     A[🐺 Flow Wolf Start] --> B[📁 Watch Downloads]
     B --> C{New File Detected?}
-    C -->|Yes| D[� Analyze Extension]
+    C -->|Yes| D[🔍 Analyze Extension]
     C -->|No| B
     D --> E[🏷️ Determine Category]
     E --> F[📂 Check/Create Folder]
@@ -247,7 +268,41 @@ flowchart TD
 
 ---
 
-## �💾 Data Flow & Interactions
+## 📊 System Monitoring
+
+### 💻 Opti Monitor Workflow
+
+<div align="center">
+
+```mermaid
+flowchart TD
+    A[💻 Opti Monitor Start] --> B[🖥️ Clear Screen]
+    B --> C[📊 Fetch CPU Usage]
+    C --> D[💾 Fetch RAM Usage]
+    D --> E[💽 Fetch Disk Usage]
+    E --> F[📈 Display Statistics]
+    F --> G{Continue?}
+    G -->|Yes| H[⏰ Wait 3 Seconds]
+    H --> B
+    G -->|No| I[❌ Exit]
+    
+    style A fill:#fbb,stroke:#333,stroke-width:4px
+    style F fill:#efe,stroke:#333,stroke-width:2px
+```
+
+</div>
+
+### 📈 Monitored Resources
+
+| 🎯 Resource | 📊 Metric | 🔄 Update Interval |
+|-------------|-----------|---------------------|
+| **CPU** | Usage percentage | 1 second |
+| **RAM** | Used/total GB and percentage | Real-time |
+| **Disk** | Used/total GB and percentage | Real-time |
+
+---
+
+## 💾 Data Flow & Interactions
 
 ### 🌊 File Pilot Data Flow
 
@@ -268,6 +323,13 @@ Preview Display → User Confirmation → Batch Renaming → Completion Report
 ```
 File Creation → Event Trigger → Extension Detection → Category Lookup → 
 Folder Creation → File Movement → Real-time Feedback
+```
+
+### 🌊 Opti Monitor Data Flow
+
+```
+System Call → Resource Collection → Data Processing → 
+Display Formatting → Screen Update → Time Delay → Repeat
 ```
 
 ---
@@ -301,6 +363,15 @@ Folder Creation → File Movement → Real-time Feedback
 - ✅ **Error Recovery**: Handles file locks and permission issues
 - ✅ **Configurable**: Easy to modify watched folder and categories
 
+### 🌟 Opti Monitor Features
+
+- ✅ **Real-time Updates**: 3-second refresh interval
+- ✅ **Comprehensive Monitoring**: CPU, RAM, and disk usage
+- ✅ **Clean Interface**: Clear terminal display
+- ✅ **Cross-platform**: Works on Windows and Unix-like systems
+- ✅ **Resource Efficient**: Minimal system overhead
+- ✅ **Graceful Exit**: Clean shutdown on Ctrl+C
+
 ---
 
 ## 📊 File Categories
@@ -318,7 +389,7 @@ Folder Creation → File Movement → Real-time Feedback
 | **Audio** | `.mp3`, `.wav`, `.aac`, `.flac` |
 | **Archives** | `.zip`, `.rar`, `.7z` |
 | **Text** | `.txt` |
-| **Code** | `.py`, `.java`, `.cpp`, `.html`, `.css`, `.js` |
+| **Code** | `.py`, `.java`, `.html`, `.css`, `.js` |
 | **Spreadsheets** | `.xls` |
 | **Presentations** | `.ppt` |
 | **Databases** | `.db`, `.sqlite` |
@@ -368,6 +439,15 @@ Are you sure you want to rename all files? (y/n): y
 👁️‍🗨️ Watching folder: C:\Users\Username\Downloads
 ✅ Moved: C:\Users\Username\Downloads\document.pdf to C:\Users\Username\Downloads\PDFs\document.pdf
 ✅ Moved: C:\Users\Username\Downloads\image.jpg to C:\Users\Username\Downloads\Images\image.jpg
+```
+
+#### Opti Monitor Usage
+```
+🖥️ System Monitoring Software 🖥️
+CPU Usage = 15.2%
+RAM Usage = 45.3% (7.25GB/16.0GB)
+Disk Usage = 62.1% (298.5GB/480.0GB)
+========================================
 ```
 
 ---
@@ -430,6 +510,24 @@ class FileMoverHandler(FileSystemEventHandler):
             print(f"❌ Error moving {file_path}: {e}")
 ```
 
+### 💻 Opti Monitor - Resource Display
+
+```python
+def show_stats():
+    """Fetch and display current CPU, RAM, and disk usage."""
+    cpu = psutil.cpu_percent(interval=1)
+    ram = psutil.virtual_memory()
+    disk = psutil.disk_usage("/")
+    
+    print(f"CPU Usage = {cpu}%")
+    print(f"RAM Usage = {ram.percent}% "
+          f"({round(ram.used / 1024**3, 2)}GB/"
+          f"{round(ram.total / 1024**3, 2)}GB)")
+    print(f"Disk Usage = {disk.percent}% "
+          f"({round(disk.used / 1024**3, 2)}GB/"
+          f"{round(disk.total / 1024**3, 2)}GB)")
+```
+
 ---
 
 ## ⚡ Performance Features
@@ -442,6 +540,7 @@ class FileMoverHandler(FileSystemEventHandler):
 - **🔄 Safe File Operations**: Uses atomic move operations
 - **🛡️ Error Recovery**: Continues operation on individual file failures
 - **👁️‍🗨️ Event-driven**: Real-time response without polling overhead
+- **📊 Efficient Monitoring**: 3-second intervals with minimal CPU usage
 
 ### 📈 Performance Characteristics
 
@@ -451,27 +550,6 @@ class FileMoverHandler(FileSystemEventHandler):
 | Batch Renaming | O(n) | O(n) |
 | Directory Scanning | O(n) | O(n) |
 | Real-time Monitoring | O(1) per event | O(1) |
+| System Monitoring | O(1) per update | O(1) |
 
 *Where n = number of files, m = number of extension categories*
-
----
-
-<div align="center">
-
-## 🎉 **AutoPyHub** - Your Intelligent File Management Companion
-
-**🚀 Ready to transform your chaotic folders into organized masterpieces!**
-
-*Choose your weapon: File Pilot for batch sorting, Wander Sort for intelligent renaming, or Flow Wolf for real-time organization!*
-
-</div>
-
----
-
-<div align="center">
-
-### 🔗 **Made with ❤️ using Python**
-
-*Clean code, powerful functionality, endless possibilities*
-
-</div>
